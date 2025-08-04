@@ -2,7 +2,7 @@
 #include "function_pointers.h"
 
 /**
-* @array_iterator - applies a callbak to each element of an int array
+* array_iterator - applies a callbak to each element of an int array
 * @array: pointer to the first element
 * @size: number of elements in array
 * @action: function pointer to apply to each element
