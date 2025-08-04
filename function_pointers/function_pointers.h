@@ -1,6 +1,7 @@
 #ifndef FUNCTION_POINTERS_H
 #define FUNCTION_POINTERS_H
 
+#include <stddef.h>
 /**
  * print_name - prints a name using the given callback
  * @name: the string to print

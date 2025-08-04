@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "function_pointers.h"
+#include <stddef.h>
 
 int is_98(int x)              { return (x == 98); }
 int is_strictly_positive(int x) { return (x > 0); }
