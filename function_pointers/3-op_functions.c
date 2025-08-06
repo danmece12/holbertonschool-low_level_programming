@@ -1,7 +1,12 @@
+/* 3-op_functions.c */
 #include "3-calc.h"
 
 /**
- * op_add - return sum of a and b
+ * op_add - returns the sum of a and b
+ * @a: first operand
+ * @b: second operand
+ *
+ * Return: the sum of a and b
  */
 int op_add(int a, int b)
 {
@@ -9,7 +14,11 @@ int op_add(int a, int b)
 }
 
 /**
- * op_sub - return difference a - b
+ * op_sub - returns the difference of a and b
+ * @a: first operand
+ * @b: second operand
+ *
+ * Return: the difference a - b
  */
 int op_sub(int a, int b)
 {
@@ -17,7 +26,11 @@ int op_sub(int a, int b)
 }
 
 /**
- * op_mul - return product of a and b
+ * op_mul - returns the product of a and b
+ * @a: first operand
+ * @b: second operand
+ *
+ * Return: the product a * b
  */
 int op_mul(int a, int b)
 {
@@ -25,7 +38,11 @@ int op_mul(int a, int b)
 }
 
 /**
- * op_div - return integer division a / b
+ * op_div - returns the result of the division of a by b
+ * @a: first operand
+ * @b: second operand
+ *
+ * Return: the result of the division a / b
  */
 int op_div(int a, int b)
 {
@@ -33,7 +50,11 @@ int op_div(int a, int b)
 }
 
 /**
- * op_mod - return remainder of a / b
+ * op_mod - returns the remainder of the division of a by b
+ * @a: first operand
+ * @b: second operand
+ *
+ * Return: the remainder of the division a % b
  */
 int op_mod(int a, int b)
 {

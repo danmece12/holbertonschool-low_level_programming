@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include "3-calc.h"
 
+/**
+ * main - entry point for calc program
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 on success, or error code on failure
+ */
 int main(int argc, char *argv[])
 {
 	int a, b, result;
