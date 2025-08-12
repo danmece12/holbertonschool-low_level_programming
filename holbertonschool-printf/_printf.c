@@ -13,14 +13,10 @@ static int _puts(const char *s)
 
 	if (!s)
 		s = "(null)";
-
 	while (s[n])
 		n++;
-
-	/* write the whole string at once */
 	if (n)
 		write(1, s, n);
-
 	return (n);
 }
 
@@ -36,6 +32,26 @@ static int _putc(char c)
 }
 
 /**
+ * print_conv - handle one conversion specifier
+ * @sp: specifier character ('c', 's', or '%')
+ * @ap: address of the variadic list
+ *
+ * Return: number of chars printed for this specifier
+ */
+static int print_conv(char sp, va_list *ap)
+{
+	if (sp == 'c')
+		return (_putc((char)va_arg(*ap, int)));
+	if (sp == 's')
+		return (_puts(va_arg(*ap, char *)));
+	if (sp == '%')
+		return (_putc('%'));
+
+	/* unknown specifier: print '%' then the char */
+	return (_putc('%') + _putc(sp));
+}
+
+/**
  * _printf - produces output according to a format
  * @format: format string (supports %c, %s, %%)
  *
@@ -44,45 +60,27 @@ static int _putc(char c)
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int count = 0;
-	int i = 0;
+	int count = 0, i = 0;
 
 	if (!format)
 		return (-1);
 
 	va_start(ap, format);
-
 	while (format[i])
 	{
 		if (format[i] != '%')
-		{
 			count += _putc(format[i++]);
-			continue;
-		}
-
-		i++; /* skip '%' */
-
-		if (!format[i]) /* stray '%' at end -> error like printf project expects */
-		{
-			va_end(ap);
-			return (-1);
-		}
-
-		if (format[i] == 'c')
-			count += _putc((char)va_arg(ap, int));
-		else if (format[i] == 's')
-			count += _puts(va_arg(ap, char *));
-		else if (format[i] == '%')
-			count += _putc('%');
 		else
 		{
-			/* Unknown specifier: print the '%' and the char, as many checkers accept */
-			count += _putc('%');
-			count += _putc(format[i]);
+			i++;
+			if (!format[i])
+			{
+				va_end(ap);
+				return (-1);
+			}
+			count += print_conv(format[i++], &ap);
 		}
-		i++;
 	}
-
 	va_end(ap);
 	return (count);
 }
