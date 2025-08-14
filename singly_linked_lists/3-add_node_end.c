@@ -50,15 +50,3 @@ list_t *add_node_end(list_t **head, const char *str)
 	tail->next = node;            /* append at the end */
 	return (node);
 }
-
-int main(void)
-{
-list_t *head = NULL;
-
-	add_node_end(&head, "Anne");
-	add_node_end(&head, "Colton");
-	add_node_end(&head, "Corbin");
-	print_list(head);
-	return (0);
-}
-
