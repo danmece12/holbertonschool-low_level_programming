@@ -9,7 +9,7 @@
  *
  * Return: address of the new element, or NULL on failure
  */
- list_t *add_node(list_t **head, const char *str)
+list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new_node;
 	char *dup;
